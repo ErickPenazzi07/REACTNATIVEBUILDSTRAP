@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
+import { NavigationContainer } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
+import { Buildstrap } from 'react-native-buildstrap';
+import HomeScreen from './Screens/HomeScreen';
+import Sensor from './Screens/Sensor';
 
 export default function App() {
+
+  const Tab = createBottomTabNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+<Buildstrap>
+  <NavigationContainer>
+  <Tab.Navigator screenOptions={{headerShown: false}}>  
+    <Tab.Screen name="Home" component={HomeScreen} />
+    <Tab.Screen name="Sensor" component={Sensor} />
+  </Tab.Navigator>
+  </NavigationContainer>
+</Buildstrap>
+
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
 });
